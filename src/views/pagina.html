@@ -1,0 +1,100 @@
+<%- include ('partials/head.html')%>
+
+
+
+
+<% if(info){ %>
+<title>Cuenta de <%= info %> - FavVID</title>
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+  <a id="logo" href="/" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-video w3-margin-right"></i>FavVID</b></a>
+  <a href="/cerrar" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey">Cerrar Sesión</a>
+  <div class="w3-bar-item w3-right w3-text-black"><i class="fa fa-user"></i> <%= info %></div>
+</div>
+
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Todo de <%= info %>:</span>
+      <button id="btn-actualizar" class="w3-button w3-red"><i class="fa fa-edit w3-margin-right"></i>Actualizar video</button>
+      <button id="btn-agregar" class="w3-button w3-white w3-hide-small"><i class="fa fa-plus w3-margin-right"></i>Agregar video</button>
+    </div>
+    
+    <div id="actualizar">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Titulo del video</th>
+                    <th>Codigo del video</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(datos){ %>
+                    <% for(var i = 0; i < datos.length; i++) { %>
+                        <tr>
+                            <td> <%=  datos[i].id %></td>
+                            <td> <%= datos[i].nombre  %></td>
+                            <td> <%- datos[i].codigo  %></td>
+                            <td>
+                                <a href="/delete/<%= datos[i].id %>" class="btn btn-danger">Borrar</a>
+                                <a href="/update/<%= datos[i].id %>" class="btn btn-info">Actualizar</a>
+
+                            </td>
+                        </tr>
+                    
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>  
+    </div>
+    
+
+            <div id="agregar">
+                
+                           
+            <form style="margin:auto;width:60%" action="/video" method="post">
+                <p class="w3-large w3-text-red">Agregar video</p>
+                <div class="w3-section">
+                  <label><b>Titulo del video</b></label>
+                  <input class="w3-input w3-border" type="text" required name="nombre">
+                </div>
+                <div class="w3-section">
+                  <label><b>Codigo del video</b></label>
+                  <textarea class="w3-input w3-border" type="text" required name="codigo"></textarea>
+                </div>
+                <button type="submit" class="w3-button w3-block w3-red">Agregar video</button>
+              </form>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+<% }else{ %>
+<title>Iniciar Sesión - FavVID</title>
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+  <a id="logo" href="/" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-video w3-margin-right"></i>FavVID</b></a>
+</div>
+
+    <form style="margin:auto;width:60%" action="/sesion" method="post">
+    <p class="w3-large w3-text-red">Para acceder escriba su usuario y contraseña</p>
+    <div class="w3-section">
+      <label><b>Nombre de usuario</b></label>
+      <input class="w3-input w3-border" type="text" required name="usuario">
+    </div>
+    <div class="w3-section">
+      <label><b>Contraseña</b></label>
+      <input class="w3-input w3-border" type="password" required name="pass">
+    </div>
+    <button type="submit" class="w3-button w3-block w3-red">Iniciar Sesión</button>
+  </form>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<% } %>
+
+
+	<div class="clear"></div>
+<%- include ('partials/footer.html')%>

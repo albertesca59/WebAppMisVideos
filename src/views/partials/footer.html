@@ -1,0 +1,38 @@
+<footer class="bg-dark text-white text-center p-2">
+	<p>Instituto Tecnologico de León</p>
+	<p>Profesor: Carlos Rafael Levy Rojas</p>
+	<p>Materia: Programación Web</p>
+	<p>Integrantes:</p>
+	<p>Jesús Alberto Esquivel Camacho</p>
+	<p>Alexis Rodolfo Sanchez Veloz</p>
+</footer>
+<!-- End page content -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script>
+	$( document ).ready(function() {
+		$('#btn-actualizar').click(function(){
+			$('#actualizar').css({
+				'display': 'block'
+			});
+			$('#agregar').css({
+				'display': 'none'
+			});
+			$("#btn-actualizar").attr("class","w3-button w3-red");
+			$("#btn-agregar").attr("class","w3-button w3-white");
+		});
+		$('#btn-agregar').click(function(){
+			$('#actualizar').css({
+				'display': 'none'
+			});
+			$('#agregar').css({
+				'display': 'block'
+			});
+			$("#btn-actualizar").attr("class","w3-button w3-white");
+			$("#btn-agregar").attr("class","w3-button w3-red");
+		});
+	});
+</script>
+</body>
+</html>

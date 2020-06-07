@@ -1,0 +1,29 @@
+<%- include ('partials/head.html')%>
+<title>Registrar usuario - FavVID</title>
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+  <a id="logo" href="/" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-video w3-margin-right"></i>FavVID</b></a>
+</div>
+	
+	<form style="margin:auto;width:60%" action="/add" method="post">
+    <p>Registrate y sé parte de esta gran comunidad de videos favoritos.</p>
+    <p class="w3-large w3-text-red">Crear nuevo usuario</p>
+    <div class="w3-section">
+      <label><b>Nombre de usuario</b></label>
+      <input class="w3-input w3-border" type="text" required name="nombre" placeholder="Con este nombre iniciaras sesión">
+    </div>
+    <div class="w3-section">
+      <label><b>Email</b></label>
+      <input class="w3-input w3-border" type="email" required name="email">
+    </div>
+    <div class="w3-section">
+      <label><b>Contraseña</b></label>
+      <input class="w3-input w3-border" type="password" required name="pass" placeholder="Recuerda tu contraseña">
+    </div>
+    <button type="submit" class="w3-button w3-block w3-red">Registrarse</button>
+  </form>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<%- include ('partials/footer.html')%>

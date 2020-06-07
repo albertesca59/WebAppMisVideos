@@ -1,0 +1,50 @@
+<%- include ('partials/head.html')%>
+<title>Pagina de inicio - FavVID</title>
+<% if(info){ %>
+
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+  <a id="logo" href="/" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-video w3-margin-right"></i>FavVID</b></a>
+  <a href="/cerrar" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey">Cerrar Sesión</a>
+  <div class="w3-bar-item w3-right w3-text-black"><i class="fa fa-user"></i> <%= info %></div>
+</div>
+	<% if(datos.length==0){ %>
+		<h1 class="w3-text-red" style="text-align: center; font-size: 250px;">(˘_˘)</h1>
+		<p style="text-align: center; font-weight: bold;font-size: 30px;">Aun no hay videos para mostrar</p>
+	<% } %>
+	<div class="w3-row-padding">
+		<% for (var i = 0; i < datos.length; i ++) { %>
+			<div id ="video" class="w3-third w3-container w3-margin-bottom">
+				<%- datos[i].codigo %>
+				<div class="w3-container w3-white">
+					<p><b><%= datos[i].nombre %></b></p>
+					<p>Subido por: <b><%= datos[i].usuario %></b></p>
+				</div>
+			</div>
+		<% } %>
+	</div>
+
+<% }else{ %>
+
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+  <a id="logo" href="/" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-video w3-margin-right"></i>FavVID</b></a>
+</div>
+	<% if(datos.length==0){ %>
+		<h1 class="w3-text-red" style="text-align: center; font-size: 250px;">(˘_˘)</h1>
+		<p style="text-align: center; font-weight: bold;font-size: 30px;">Aun no hay videos para mostrar</p>
+	<% } %>
+	<div class="w3-row-padding">
+		<% for (var i = 0; i < datos.length; i ++) { %>
+			<div id ="video" class="w3-third w3-container w3-margin-bottom">
+				<%- datos[i].codigo %>
+				<div class="w3-container w3-white">
+					<p><b><%= datos[i].nombre %></b></p>
+					<p>Subido por: <b><%= datos[i].usuario %></b></p>
+				</div>
+			</div>
+		<% } %>
+	</div>
+
+<% } %>
+
+
+<%- include ('partials/footer.html')%>

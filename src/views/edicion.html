@@ -1,0 +1,32 @@
+<%- include ('partials/head.html')%>
+<title>Edición de registro - FavVID</title>	
+	
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+  <a id="logo" href="/" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-video w3-margin-right"></i>FavVID</b></a>
+  <a href="/cerrar" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey">Cerrar Sesión</a>
+  <div class="w3-bar-item w3-right w3-text-black"><i class="fa fa-user"></i> <%= info %></div>
+</div>	
+	<div class="container mt-5">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/update/<%= datos[0].id %>" method="POST">
+                            <div class="form-group">
+                                Titulo <br>
+                                <input type="text" name="nombre" value="<%= datos[0].nombre %>" class="form-control">
+                                Codigo <br>
+                                <input type="text" name="html" value="<%= datos[0].codigo %>" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div class="clear"></div>
+	
+	
+<%- include ('partials/footer.html')%>
